@@ -49,8 +49,9 @@ def num_gues():
     guess_number = 4
     hint_number = 3
     num = Guesser.num_gen()
+
     guesser_instance = Guesser(num)
-    print(num)
+
     greeting_txt = f'''
 Hello! I have guessed an integer number between 1 and 100. Can you guess the number?
 You have four guesses to make! You can ask up to three hints by typing "hint".
@@ -83,11 +84,11 @@ Guess again:''')
                         input_num = input('Sorry! You ran out of hints! Guess the number: ')
                         continue
                     else:
-                        hint_number -=1
 
+                        hint_number -=1
                         hint_lst = ['a','b','c']
                         hint_selector = random.choice(hint_lst)
-                        print(hint_selector)
+
                         if hint_selector == 'a':
                             num_mults = guesser_instance.get_multiples()
                             num_mults_lst = list(num_mults)
@@ -103,13 +104,11 @@ Guess again:''')
                             else:
                                 print('One of the multiples of the number is',random.choice(num_mults_lst))
                                 input_num = input('You got one hint! Guess the number: ')
+                                
                         elif hint_selector == 'b':
                             larger_num = guesser_instance.get_larger()
-                            print('larger num:',larger_num)
                             smaller_number = guesser_instance.get_smaller()
-                            print('smaller_num:',smaller_number)
                             b_selector = random.choice([1,2])
-
                             if b_selector == 1:
                                 print('The number is smaller than ',larger_num)
                                 input_num = input('You got one hint! Guess the number: ')
