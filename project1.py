@@ -2,11 +2,11 @@ import random
 
 play_choice = {1:'rock',2:'paper', 3:'scissors'}
 val = list(play_choice.values())
-computer_play = random.choice(val)
 
 ans = 'Yes'
-while ans =='Yes':
-    human_play = input('rock, paper, or scissors?')
+while ans.lower() =='Yes'.lower():
+    human_play = input('rock, paper, or scissors?').lower()
+    computer_play = random.choice(val).lower()
     out_str = f'''I chose {computer_play}, and you chose {human_play}.'''
     print(out_str)
     if human_play in play_choice.values():
@@ -31,5 +31,5 @@ while ans =='Yes':
     else:
         print('Error: Incorrect choice!')
     ans = input('Play again?(Yes/No)')
-    if ans != 'Yes' and ans != 'No':
+    if ans.lower() != 'Yes'.lower() and ans.lower() != 'No'.lower():
         ans = input('Play again?(Yes/No)')
