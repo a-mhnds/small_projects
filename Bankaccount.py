@@ -54,4 +54,5 @@ class BankAccount(object):
                     break
         return trans_hist
 
-BankAccount('Tom Jones',123456,'checking')
+James_accnt = BankAccount('James Dean',10001,'saving')
+James_accnt.deposit(1000)
