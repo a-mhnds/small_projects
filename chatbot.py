@@ -4,10 +4,12 @@ class Guesser:
     def __init__(self,number):
         self.number = number
 
+
     @staticmethod
     def num_gen():
         return random.randint(1,100)
-    
+
+
     def get_factors(self):
         factors_lst = []
         prime_flag = True
@@ -20,9 +22,11 @@ class Guesser:
         else:
             return factors_lst
     
+
     def get_multiples(self):
         return(self.number*i for i in range(1,10+1))
     
+
     def get_larger(self):
         if self.number > 98:
             larger_number = [99,100]
@@ -30,12 +34,14 @@ class Guesser:
             larger_number = random.choice(range(self.number+1,100))
         return(larger_number)
     
+
     def get_smaller(self):
         if self.number <3:
             smaller_number = [1,2]
         else:
             smaller_number = random.choice(range(1,self.number-1))
         return(smaller_number)
+    
     
     def odd_even(self):
         if self.number % 2 == 0:
@@ -52,8 +58,7 @@ def num_gues():
 
     guesser_instance = Guesser(num)
 
-    greeting_txt = f'''
-Hello! I have guessed an integer number between 1 and 100. Can you guess the number?
+    greeting_txt = f'''Hello! I have guessed an integer number between 1 and 100. Can you guess the number?
 You have four guesses to make! You can ask up to three hints by typing "hint".
 Let's begin: '''
     input_num = input(greeting_txt)
@@ -66,17 +71,14 @@ Let's begin: '''
                     print('Congradulations! You guessed the number!')
                     break
                 elif guess_number ==0:
-                    print(f'''
-Sorry! You ran out of guess! The number is {num}.''')
+                    print(f'''Sorry! You ran out of guess! The number is {num}.''')
                     break
                 elif not int(input_num) in range(1,100):
-                    input_num = input(f'''
-Out of range! You have {guess_number} more guesses to make.
+                    input_num = input(f'''Out of range! You have {guess_number} more guesses to make.
 Guess the integer number, which is between 1 and 100 or type "hint" to receive hint: ''')
                     continue
                 else:
-                    input_num = input(f'''
-Sorry! Wrong answer! You have {guess_number} more guesses to make.
+                    input_num = input(f'''Sorry! Wrong answer! You have {guess_number} more guesses to make.
 You can have up to three hints by typing "hint".
 Guess again:''')
             else:
@@ -99,7 +101,7 @@ Guess again:''')
                                 num_factors_lst = list(num_factors)
                             a_selector = random.choice([1,2])
                             if a_selector == 1:
-                                print('Factors of the number are:',num_factors_lst[:-1])
+                                print('Factors of the number are:',num_factors_lst)
                                 input_num = input('You got one hint! Guess the number: ')
                             else:
                                 print('One of the multiples of the number is',random.choice(num_mults_lst))
@@ -121,18 +123,15 @@ Guess again:''')
               
         except ValueError:
             if guess_number ==0:
-                    print(f'''
-Sorry! You ran out of guess! The number is {num}.''')
+                    print(f'''Sorry! You ran out of guess! The number is {num}.''')
                     break
             else:
                 if guess_number == 1:
-                    input_num = input(f'''
-Wrong input! Guess the integer number, which is between 1 and 100 or type "hint" to receive hint.
+                    input_num = input(f'''Wrong input! Guess the integer number, which is between 1 and 100 or type "hint" to receive hint.
 You lost one guess! You have {guess_number} more guess to make.
 Guess the number: ''')
                 else:
-                    input_num = input(f'''
-Wrong input! Guess the integer number, which is between 1 and 100 or type "hint" to receive hint.
+                    input_num = input(f'''Wrong input! Guess the integer number, which is between 1 and 100 or type "hint" to receive hint.
 You lost one guess! You have {guess_number} more guesses to make.
 Guess the number: ''')
             continue     
