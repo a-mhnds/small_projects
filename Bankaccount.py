@@ -54,5 +54,7 @@ class BankAccount(object):
                     break
         return trans_hist
 
-James_accnt = BankAccount('James Dean',10001,'saving')
-James_accnt.deposit(1000)
+
+if __name__ == "__main__":
+    bank_account = BankAccount('James Dean',10001,'saving')
+    bank_account.deposit(1000)
