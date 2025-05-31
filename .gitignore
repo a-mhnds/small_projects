@@ -1,5 +1,7 @@
 *.ipynb
 *.txt
+__pycache__/
+data/
 mushroom.py
 mushrooms.csv
 cereal_mod.csv
