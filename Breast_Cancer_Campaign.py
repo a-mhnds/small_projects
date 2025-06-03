@@ -21,7 +21,8 @@ else:
 
 #Dropping Unnecessary Columns
 df_refined = df.drop('diagnosis', axis=1)   #This column is target.
-
+df_refined = df_refined.drop('id', axis=1)   #This column is target.
+col_names = df_refined.columns
 
 #Scaling
 scaler = StandardScaler()
@@ -39,7 +40,7 @@ df_refined = norm.fit_transform(df_refined)
 
 
 #save to data_refined.csv
-df_refined = pd.DataFrame(df_refined, columns=df_refined.columns)
+df_refined = pd.DataFrame(df_refined, columns=col_names)
 df_refined.to_csv('df_refined.csv')
 
 
@@ -54,6 +55,8 @@ cmap = sns.color_palette("light:#5A9", as_cmap=True)
 sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0,
             square=True, linewidths=.5, cbar_kws={"shrink": .5, 'label': 'Correlation coef'})
 ax.set_title('Correlation Heat Map', fontsize = 20, fontweight='bold')
+plt.show()
+
 
 
 #Pair Plots for the features
@@ -61,4 +64,9 @@ pair = sns.pairplot(df_refined,
              x_vars=['radius_mean', 'smoothness_mean', 'fractal_dimension_mean'],
              y_vars=['radius_worst','perimeter_worst'],
              kind='scatter', plot_kws=dict(color= 'k'))
-pair.fig.suptitle('pairplots for Selected Features', y=1.08, fontsize = 20)
+
+plt.subplots_adjust(top=0.9)
+
+plt.suptitle('pairplots for Selected Features', fontsize=20)
+plt.show()
+
