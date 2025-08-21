@@ -1,1 +1,3 @@
-project1.py: It is the rock, paper, scissors game. 
+Description:
+
+Small projects done for the ML/AI bootcamp.
